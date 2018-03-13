@@ -8,6 +8,13 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBox HorizontalAlignment="Center" 
+                 Text="Hello it shark" 
+                 VerticalAlignment="Center"
+                 FontSize="32"
+                 FontWeight="Bold"
+                 
+                 />
 
     </Grid>
 </Page>
