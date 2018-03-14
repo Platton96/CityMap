@@ -1,4 +1,6 @@
-﻿using Windows.UI.Xaml.Controls;
+﻿using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using System;
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace MyCityMap.Views
@@ -12,5 +14,16 @@ namespace MyCityMap.Views
         {
             this.InitializeComponent();
         }
+
+        private async void Button_ClickAsync(object sender, RoutedEventArgs e)
+        {
+            MediaElement mediaElement = new MediaElement();
+            var synth = new Windows.Media.SpeechSynthesis.SpeechSynthesizer();
+            Windows.Media.SpeechSynthesis.SpeechSynthesisStream stream = await synth.SynthesizeTextToStreamAsync("Hello world");
+            mediaElement.SetSource(stream, stream.ContentType);
+            mediaElement.Play();
+        }
+
+       
     }
 }
