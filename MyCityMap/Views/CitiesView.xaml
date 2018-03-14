@@ -6,21 +6,38 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="64"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Cities"
+                   Foreground="Black"
+                   FontSize="32"
+                   Margin="12,0,0,0"
+                   VerticalAlignment="Center"/>
+        <!--<Grid Background="#2C404B"
+              HorizontalAlignment="Stretch">
+            
+        </Grid>-->
 
-
-    <ListView x:Name="ListCities">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <StackPanel>
-                    <TextBlock Text="{Binding Name}" 
-                           FontSize="24" 
+        <ListView x:Name="ListCities"
+              Grid.Row="1"
+              IsItemClickEnabled="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}" 
+                               FontSize="20"
+                               Foreground="Black"
                             />
-                    <TextBlock Text="{Binding Description}" 
-                           Margin="20,0,20,8"
-                           FontSize="20"
+                        <TextBlock Text="{Binding Description}" 
+                                FontSize="16"
+                               Foreground="Gray"
                             />
-                </StackPanel>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
 </Page>
