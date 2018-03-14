@@ -1,20 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using Windows.UI.ViewManagement;
+using MyCityMap.Views;
 namespace MyCityMap
 {
     /// <summary>
@@ -70,6 +62,7 @@ namespace MyCityMap
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
+                CustomizeTitleBar();
             }
         }
 
@@ -95,6 +88,18 @@ namespace MyCityMap
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
+        }
+        private void CustomizeTitleBar()
+        {
+            var titleBar = ApplicationView.GetForCurrentView().TitleBar;
+
+            if (titleBar != null)
+            {
+                titleBar.ButtonBackgroundColor = Color.FromArgb(255, 44, 64, 75);
+                titleBar.ButtonForegroundColor = Colors.White;
+                titleBar.BackgroundColor = Color.FromArgb(255, 44, 64, 75);
+                titleBar.ForegroundColor = Colors.White;
+            }
         }
     }
 }
