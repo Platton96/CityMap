@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using MyCityMap.Concrete;
+using MyCityMap.Models;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -21,18 +21,21 @@ namespace MyCityMap.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class CitiesView : Page
+    public sealed partial class CityView : Page
     {
-        public CitiesView()
+        public CityView()
         {
             this.InitializeComponent();
-            var citiesRepository = new CitiesRepository();
-            ListCities.ItemsSource = citiesRepository.Cities;
-           
         }
-        private void ListCities_ItemClick (object sender, ItemClickEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Frame.Navigate(typeof(CityView), e.ClickedItem);
+            var city = e.Parameter as City;
+            if (city!=null)
+            {
+                TextBlockName.Text = city.Name;
+                TextBlockDescription.Text = city.Description;
+            }
+            base.OnNavigatedTo(e);
         }
     }
 }

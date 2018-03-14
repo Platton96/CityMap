@@ -22,8 +22,10 @@
         </Grid>-->
 
         <ListView x:Name="ListCities"
-              Grid.Row="1"
-              IsItemClickEnabled="True">
+                  Grid.Row="1"
+                  IsItemClickEnabled="True"
+                  ItemClick="ListCities_ItemClick"
+                >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
