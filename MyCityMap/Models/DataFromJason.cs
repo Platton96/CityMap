@@ -4,7 +4,9 @@ using System.Collections.Generic;
 namespace MyCityMap.Models
 {   [DataContract]
     public class DataFromJason
-    {  [DataMember (Name ="photos")]
+    {
+        [JsonProperty]
+        [DataMember (Name ="photos")]
        IEnumerable<City> Cities { get; set; }
     }
 }
