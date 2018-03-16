@@ -7,6 +7,6 @@ namespace MyCityMap.Models
     {
         [JsonProperty]
         [DataMember (Name ="photos")]
-       IEnumerable<City> Cities { get; set; }
+       public IEnumerable<City> Cities { get; set; }
     }
 }

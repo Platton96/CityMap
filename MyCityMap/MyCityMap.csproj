@@ -99,7 +99,9 @@
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\DataFromJason.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Servise\NetworkService.cs" />
+    <Compile Include="Services\API\ApplicationApiService.cs" />
+    <Compile Include="Services\CityService.cs" />
+    <Compile Include="Services\NetworkService.cs" />
     <Compile Include="Views\CitiesView.xaml.cs">
       <DependentUpon>CitiesView.xaml</DependentUpon>
     </Compile>

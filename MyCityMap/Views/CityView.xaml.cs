@@ -29,8 +29,7 @@ namespace MyCityMap.Views
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var city = e.Parameter as City;
-            if (city!=null)
+            if (e.Parameter is City city)
             {
                 TextBlockName.Text = city.Name;
                 TextBlockDescription.Text = city.Description;

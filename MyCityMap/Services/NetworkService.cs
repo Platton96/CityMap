@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Networking.Connectivity;
 
-namespace MyCityMap.Servise
+namespace MyCityMap.Services
 {
     public class NetworkService
     {

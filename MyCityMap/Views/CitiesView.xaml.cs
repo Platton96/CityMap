@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using MyCityMap.Concrete;
+using System.Threading.Tasks;
+using MyCityMap.Services;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,9 +28,21 @@ namespace MyCityMap.Views
         public CitiesView()
         {
             this.InitializeComponent();
-            var citiesRepository = new CitiesRepository();
-            ListCities.ItemsSource = citiesRepository.Cities;
-           
+      
+        }
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            await InitializeAsync();
+
+        }
+        private async Task InitializeAsync()
+        {
+            LoadingProgressRing.IsActive = true;
+            var cities = await new CityService().LoadCityAsync();
+            LoadingProgressRing.IsActive = false;
+            ListCities.ItemsSource = cities;
+
+
         }
         private void ListCities_ItemClick (object sender, ItemClickEventArgs e)
         {
