@@ -1,18 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using MyCityMap.Concrete;
 using System.Threading.Tasks;
 using MyCityMap.Services;
 
@@ -25,6 +12,12 @@ namespace MyCityMap.Views
     /// </summary>
     public sealed partial class CitiesView : Page
     {
+        private const string NoInternetLabel = "No internet conection";
+        private const string NoDataLabel = "No Data";
+
+        private CityService _cityService;
+        private NetworkService _networkService;
+
         public CitiesView()
         {
             this.InitializeComponent();
@@ -33,6 +26,8 @@ namespace MyCityMap.Views
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             await InitializeAsync();
+            _cityService = new CityService();
+            _networkService = new NetworkService();
 
         }
         private async Task InitializeAsync()
@@ -40,9 +35,17 @@ namespace MyCityMap.Views
             LoadingProgressRing.IsActive = true;
             var cities = await new CityService().LoadCityAsync();
             LoadingProgressRing.IsActive = false;
-            GridView.ItemsSource = cities;
+
+            if (cities != null) GridView.ItemsSource = cities;
+            else ShowNoData();
+           
 
 
+        }
+        private void ShowNoData()
+        {
+            NoDataText.Text = _networkService.HasInternet() ? NoInternetLabel : NoDataLabel;
+            NoDataText.Visibility = Visibility.Visible;
         }
         private void ListCities_ItemClick (object sender, ItemClickEventArgs e)
         {
