@@ -7,6 +7,8 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.ViewManagement;
 using MyCityMap.Views;
+using Windows.UI.Core;
+
 namespace MyCityMap
 {
     /// <summary>
@@ -41,7 +43,7 @@ namespace MyCityMap
                 rootFrame = new Frame();
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
-
+                rootFrame.Navigated += OnNavigated;
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     //TODO: Load state from previously suspended application
@@ -49,6 +51,8 @@ namespace MyCityMap
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
+                SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
+                SetBackButtonVisibility(rootFrame);
             }
 
             if (e.PrelaunchActivated == false)
@@ -75,6 +79,22 @@ namespace MyCityMap
         {
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
+        private void OnNavigated(object sender, NavigationEventArgs e)
+        {
+            // Each time a navigation event occurs, update the Back button's visibility
+            SetBackButtonVisibility((Frame)sender);
+        }
+
+        private void OnBackRequested(object sender, BackRequestedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+
+            if (rootFrame.CanGoBack)
+            {
+                e.Handled = true;
+                rootFrame.GoBack();
+            }
+        }
 
         /// <summary>
         /// Invoked when application execution is being suspended.  Application state is saved
@@ -100,6 +120,12 @@ namespace MyCityMap
                 titleBar.BackgroundColor = Color.FromArgb(255, 44, 64, 75);
                 titleBar.ForegroundColor = Colors.White;
             }
+        }
+        private void SetBackButtonVisibility(Frame frame)
+        {
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = frame.CanGoBack
+                ? AppViewBackButtonVisibility.Visible
+                : AppViewBackButtonVisibility.Collapsed;
         }
     }
 }
