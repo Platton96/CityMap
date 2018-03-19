@@ -12,36 +12,46 @@
             <RowDefinition Height="64"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Grid Background="#2C404B"
+              HorizontalAlignment="Stretch">
         <TextBlock Text="Cities"
-                   Foreground="Black"
+                   Foreground="White"
                    FontSize="32"
                    Margin="12,0,0,0"
                    VerticalAlignment="Center"/>
+        </Grid> 
         <!--<Grid Background="#2C404B"
               HorizontalAlignment="Stretch">
             
         </Grid>-->
 
-        <ListView x:Name="ListCities"
+        <GridView x:Name="GridView"
                   Grid.Row="1"
                   IsItemClickEnabled="True"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
                   ItemClick="ListCities_ItemClick"
                 >
-            <ListView.ItemTemplate>
+            <GridView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Name}" 
-                               FontSize="20"
-                               Foreground="Black"
+                    <Grid Width="320"
+                          Height="240">
+                        <Image Source="{Binding ImageUrl}"
+                               Stretch="UniformToFill"/>
+                        <StackPanel Height="40"
+                                    VerticalAlignment="Bottom"
+                                    Background="{ThemeResource SystemBaseLowColor}">
+                        <TextBlock Text="{Binding Name}"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="White"
+                                   
                             />
-                        <TextBlock Text="{Binding Description}" 
-                                FontSize="16"
-                               Foreground="Gray"
-                            />
-                    </StackPanel>
+                        </StackPanel>
+                    </Grid>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </GridView.ItemTemplate>
+        </GridView>
         <ProgressRing Grid.Row="1"
                       x:Name="LoadingProgressRing"
                       IsActive="False"

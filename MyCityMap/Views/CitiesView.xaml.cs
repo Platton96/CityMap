@@ -40,7 +40,7 @@ namespace MyCityMap.Views
             LoadingProgressRing.IsActive = true;
             var cities = await new CityService().LoadCityAsync();
             LoadingProgressRing.IsActive = false;
-            ListCities.ItemsSource = cities;
+            GridView.ItemsSource = cities;
 
 
         }

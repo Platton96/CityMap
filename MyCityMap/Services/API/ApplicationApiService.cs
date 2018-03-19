@@ -18,17 +18,17 @@ namespace MyCityMap.Services.API
             var httpClient = new HttpClient();
             var dataUri = new Uri(DataUrl);
             var result = new DataFromJason();
-            var responce = await httpClient.GetStringAsync(dataUri);
-            result = JsonConvert.DeserializeObject<DataFromJason>(responce);
-            //try
-            //{
-            //    var responce = await httpClient.GetStringAsync(dataUri);
-            //    result = JsonConvert.DeserializeObject<DataFromJason>(responce);
-            //}
-            //catch 
-            //{
-            //    throw new Exception();
-            //}
+            //var responce = await httpClient.GetStringAsync(dataUri);
+            //result = JsonConvert.DeserializeObject<DataFromJason>(responce);
+            try
+            {
+                var responce = await httpClient.GetStringAsync(dataUri);
+                result = JsonConvert.DeserializeObject<DataFromJason>(responce);
+            }
+            catch
+            {
+                throw new Exception();
+            }
             httpClient.Dispose();
             return result;
         }
