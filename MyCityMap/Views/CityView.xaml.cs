@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using MyCityMap.Models;
+using Windows.UI.Xaml.Media.Imaging;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -32,7 +33,8 @@ namespace MyCityMap.Views
             if (e.Parameter is City city)
             {
                 TextBlockName.Text = city.Name;
-                TextBlockDescription.Text = city.Description;
+                DescriptionCity.Text = city.Description;
+                ImageCity.Source = new BitmapImage(new Uri(city.ImageUrl));
             }
             base.OnNavigatedTo(e);
         }
