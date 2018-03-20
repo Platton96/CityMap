@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Concrete\CitiesRepository.cs" />
+    <Compile Include="Infrastructure\LocalStorage.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\DataFromJason.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
