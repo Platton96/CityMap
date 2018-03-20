@@ -53,5 +53,10 @@ namespace MyCityMap.Views
         {
             Frame.Navigate(typeof(CityView), e.ClickedItem);
         }
+
+        private void CitiesMap_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(CitiesMapView), e.OriginalSource);
+        }
     }
 }

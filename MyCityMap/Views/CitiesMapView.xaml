@@ -20,6 +20,11 @@
                    FontSize="32"
                    Margin="12,0,0,0"
                    VerticalAlignment="Center"/>
+            <Maps:MapControl  
+                    x:Name="MapControl1"  
+                    MapServiceToken="Token Value"  
+                    ZoomLevel="8"/>
+
         </Grid>
     </Grid>
 </Page>

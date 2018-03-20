@@ -19,7 +19,23 @@
                    FontSize="32"
                    Margin="12,0,0,0"
                    VerticalAlignment="Center"/>
-        </Grid> 
+        </Grid>
+        <Button x:Name="CitiesMap"
+                Height="32"
+                Margin="0,0,12,0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                Click="CitiesMap_Click">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="ms-appx:///Assets/BingLogo.png"/>
+                    <TextBlock Margin="6,0,0,0"
+                               Text="Cities map"
+                               Foreground="White"/>
+                </StackPanel>
+                            
+            </Button.Content>
+        </Button>
         <!--<Grid Background="#2C404B"
               HorizontalAlignment="Stretch">
             

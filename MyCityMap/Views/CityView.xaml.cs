@@ -26,7 +26,7 @@ namespace MyCityMap.Views
     {
         public CityView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {

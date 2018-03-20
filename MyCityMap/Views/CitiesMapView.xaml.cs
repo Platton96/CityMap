@@ -24,7 +24,17 @@ namespace MyCityMap.Views
     {
         public CitiesMapView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
+        //protected override void OnNavigatedTo(NavigationEventArgs e)
+        //{
+        //    if (e.Parameter is Cit)
+        //    {
+        //        TextBlockName.Text = city.Name;
+        //        DescriptionCity.Text = city.Description;
+        //        ImageCity.Source = new BitmapImage(new Uri(city.ImageUrl));
+        //    }
+        //    base.OnNavigatedTo(e);
+        //}
     }
 }
