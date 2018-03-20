@@ -13,7 +13,7 @@ namespace MyCityMap.Infrastructure
 
         public LocalStorage()
         {
-            _localStorage = Windows.Storage.ApplicationData.Current.LocalFolder;
+            _localStorage = ApplicationData.Current.LocalFolder;
         }
 
         public async Task SaveDate(DataFromJason data)

@@ -3,6 +3,7 @@ using Windows.UI.Xaml.Controls;
 using System.Threading.Tasks;
 using MyCityMap.Services;
 
+
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace MyCityMap.Views
@@ -21,13 +22,14 @@ namespace MyCityMap.Views
         public CitiesView()
         {
             this.InitializeComponent();
-      
+            _cityService = new CityService();
+            _networkService = new NetworkService();
+
         }
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             await InitializeAsync();
-            _cityService = new CityService();
-            _networkService = new NetworkService();
+
 
         }
         private async Task InitializeAsync()
