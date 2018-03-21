@@ -20,8 +20,8 @@ namespace MyCityMap.Services
         public async Task<IEnumerable<City>> LoadCityAsync()
         {
             var data = await _applicationApiService.FetchDataAsync();
-
-            if (data != null) await _localStorage.SaveDate(data);
+                
+            if (data.Cities != null) await _localStorage.SaveDate(data);
             else data = await _localStorage.GetData();
          
             return data.Cities;

@@ -26,13 +26,19 @@
             <Image x:Name="ImageCity"
                    Stretch="Uniform"
                    MaxHeight="640"
-                   MaxWidth="640">
+                   MaxWidth="640"
+                   Margin="0,12,0,12"
+                   >
+                
             </Image>
             <TextBlock x:Name="DescriptionCity"
                        Foreground="#2C404B"
                        TextWrapping="WrapWholeWords"
                        HorizontalAlignment="Center"
-                       MaxWidth="640">
+                       IsTextScaleFactorEnabled="True"
+                       SelectionHighlightColor="Gray"
+                       MaxWidth="680"
+                       FontFamily="Arial">
 
 
 

@@ -24,7 +24,7 @@ namespace MyCityMap.Services.API
             }
             catch
             {
-                throw new Exception();
+                //throw new Exception();
             }
             httpClient.Dispose();
             return result;
