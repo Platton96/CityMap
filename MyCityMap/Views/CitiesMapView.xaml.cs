@@ -12,6 +12,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using MyCityMap.Models;
+using Windows.Devices.Geolocation;
+using Windows.Services.Maps;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,15 +29,24 @@ namespace MyCityMap.Views
         {
             InitializeComponent();
         }
-        //protected override void OnNavigatedTo(NavigationEventArgs e)
-        //{
-        //    if (e.Parameter is Cit)
-        //    {
-        //        TextBlockName.Text = city.Name;
-        //        DescriptionCity.Text = city.Description;
-        //        ImageCity.Source = new BitmapImage(new Uri(city.ImageUrl));
-        //    }
-        //    base.OnNavigatedTo(e);
-        //}
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var cities = e.Parameter as IEnumerable<City>;
+            if(cities!=null)
+            {
+                foreach (var city in cities)
+                {
+                    AddIconOnMap(city);
+                }
+            }
+            base.OnNavigatedTo(e);
+        }
+        
+        private void AddIconOnMap(City city)
+        {
+
+        }
+
     }
 }

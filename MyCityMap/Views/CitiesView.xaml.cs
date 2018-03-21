@@ -21,7 +21,7 @@ namespace MyCityMap.Views
 
         public CitiesView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             _cityService = new CityService();
             _networkService = new NetworkService();
 
