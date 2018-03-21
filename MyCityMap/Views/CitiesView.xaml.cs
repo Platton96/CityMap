@@ -56,7 +56,7 @@ namespace MyCityMap.Views
 
         private void CitiesMap_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(CitiesMapView), e.OriginalSource);
+            Frame.Navigate(typeof(CitiesMapView), GridView.ItemsSource);
         }
     }
 }
