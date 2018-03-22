@@ -23,6 +23,7 @@
 
         <StackPanel Grid.Row="1"
                     HorizontalAlignment="Center">
+
             <Image x:Name="ImageCity"
                    Stretch="Uniform"
                    MaxHeight="640"
@@ -35,8 +36,10 @@
                        Foreground="#2C404B"
                        TextWrapping="WrapWholeWords"
                        HorizontalAlignment="Center"
-                       IsTextScaleFactorEnabled="True"
+                       IsTextSelectionEnabled="True"
                        SelectionHighlightColor="Gray"
+                       TextAlignment="Start"
+                       
                        MaxWidth="680"
                        FontFamily="Arial">
 
