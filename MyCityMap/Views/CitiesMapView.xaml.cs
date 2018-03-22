@@ -4,6 +4,8 @@ using Windows.UI.Xaml.Navigation;
 using MyCityMap.Models;
 using Windows.Devices.Geolocation;
 using Windows.UI.Xaml.Controls.Maps;
+using System.Linq;
+using System;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -14,17 +16,20 @@ namespace MyCityMap.Views
     /// </summary>
     public sealed partial class CitiesMapView : Page
     {
+        private IEnumerable<City> _cities;
         public CitiesMapView()
         {
             InitializeComponent();
         }
 
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var cities = e.Parameter as IEnumerable<City>;
-            if(cities!=null)
+            _cities = e.Parameter as IEnumerable<City>;
+
+            if(_cities!=null)
             {
-                foreach (var city in cities)
+                foreach (var city in _cities)
                 {
                     AddIconOnMap(city);
                 }
@@ -34,6 +39,7 @@ namespace MyCityMap.Views
         
         private void AddIconOnMap(City city)
         {
+            
             var location = new BasicGeoposition
             {
                 Latitude = city.Latitude,
@@ -55,6 +61,14 @@ namespace MyCityMap.Views
 
             MapControl.MapElements.Add(mapIcon);
             MapControl.Center = geoPoint;
+        }
+        private void MapElement_Click(object sender, MapElementClickEventArgs e)
+        {
+
+            var mapIconCity = e.MapElements.FirstOrDefault() as MapIcon;
+            var city = _cities.Where(c =>c.Name == mapIconCity.Title).FirstOrDefault();
+                               
+            Frame.Navigate(typeof(CityView), city);
         }
 
     }

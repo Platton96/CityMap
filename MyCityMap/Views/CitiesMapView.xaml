@@ -22,10 +22,10 @@
                    VerticalAlignment="Center"/>
         </Grid>
         
-        <Maps:MapControl  
-                    x:Name="MapControl"  
-                    ZoomLevel="2"
-                    Grid.Row="1"/>
+        <Maps:MapControl x:Name="MapControl" 
+                         MapElementClick="MapElement_Click"
+                         ZoomLevel="2"
+                         Grid.Row="1"/>
 
        
     </Grid>
