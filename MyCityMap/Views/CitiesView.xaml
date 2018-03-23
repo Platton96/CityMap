@@ -18,12 +18,12 @@
 
         </Grid>
         <Button x:Name="CitiesMap"
-                Style="{StaticResource btnMap}"
+                Style="{StaticResource ButtonMapStyle}"
                 Click="CitiesMap_Click">
             <Button.Content>
                 <StackPanel Orientation="Horizontal">
                     <Image Source="ms-appx:///Assets/BingLogo.png"/>
-                    <TextBlock Style="{StaticResource textBtnMap}"/>
+                    <TextBlock Style="{StaticResource TitleButtonMapTextStyle}"/>
                 </StackPanel>
 
             </Button.Content>
