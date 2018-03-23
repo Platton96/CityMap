@@ -68,17 +68,17 @@
             <Setter Property="Foreground" Value="#2C404B"/>
         </Style>
         <Style TargetType="TextBlock" x:Key="DescriptionCityTextStyle" BasedOn="{StaticResource BodyTextBlockStyle}" >
-            <Setter Property="MaxWidth" Value="680"/>
             <Setter Property="Foreground" Value="#2C404B"/>
             <Setter Property="SelectionHighlightColor" Value="Gray"/>
             <Setter Property="IsTextSelectionEnabled" Value="True"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Margin" Value="0,0,0,6"/>
         </Style>
 
         <Style TargetType="Image" x:Key="DetailsCityImageStyle">
             <Setter Property="Stretch" Value="Uniform"/>
-            <Setter Property="MaxHeight" Value="640"/>
-            <Setter Property="MaxWidth" Value="640"/>
-            <Setter Property="Margin" Value="0,0,0,12"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Margin" Value="0,12,0,12"/>
         </Style>
                
     </Application.Resources>

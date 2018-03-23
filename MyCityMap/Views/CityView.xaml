@@ -22,15 +22,20 @@
                 <ColumnDefinition Width="8*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel HorizontalAlignment="Center"
-                        Grid.Column="1"
-                        VerticalAlignment="Center"
-                        Margin="20,20,20,20">
+            <Grid Grid.Column="1" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="9*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+     
                 <Image x:Name="ImageCity"
-                   Style="{StaticResource DetailsCityImageStyle}"/>
+                       Style="{StaticResource DetailsCityImageStyle}"
+                       Grid.Row="0"/>
                 <TextBlock x:Name="DescriptionCity"
-                       Style="{StaticResource DescriptionCityTextStyle}"/>
-            </StackPanel>
+                           Style="{StaticResource DescriptionCityTextStyle}"
+                           Grid.Row="1"
+                                />
+            </Grid>
         </Grid>
     </Grid>
 </Page>
