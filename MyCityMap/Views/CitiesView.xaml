@@ -12,42 +12,27 @@
             <RowDefinition Height="64"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Background="#2C404B"
-              HorizontalAlignment="Stretch">
+        <Grid  Style="{StaticResource NavigationGridStyle}">
             <TextBlock Text="Cities"
-                       Foreground="White"
-                       FontSize="32"
-                       Margin="12,0,0,0"
-                       VerticalAlignment="Center"/>
+                       Style="{StaticResource NavigatioTitleTextStyle}"/>
+
         </Grid>
         <Button x:Name="CitiesMap"
-                Height="32"
-                Margin="0,0,12,0"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Right"
+                Style="{StaticResource btnMap}"
                 Click="CitiesMap_Click">
             <Button.Content>
                 <StackPanel Orientation="Horizontal">
                     <Image Source="ms-appx:///Assets/BingLogo.png"/>
-                    <TextBlock Margin="6,0,0,0"
-                               Text="Cities map"
-                               Foreground="White"/>
+                    <TextBlock Style="{StaticResource textBtnMap}"/>
                 </StackPanel>
-                            
+
             </Button.Content>
         </Button>
-        <!--<Grid Background="#2C404B"
-              HorizontalAlignment="Stretch">
-            
-        </Grid>-->
 
         <GridView x:Name="GridView"
                   Grid.Row="1"
-                  IsItemClickEnabled="True"
-                  HorizontalAlignment="Center"
-                  VerticalAlignment="Center"
-                  ItemClick="ListCities_ItemClick"
-                >
+                  Style="{StaticResource gridViewCities}"
+                  ItemClick="ListCities_ItemClick">
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <Grid Width="320"
@@ -58,10 +43,7 @@
                                     VerticalAlignment="Bottom"
                                     Background="{ThemeResource SystemBaseLowColor}">
                         <TextBlock Text="{Binding Name}"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Center"
-                                   Foreground="White"
-                                   
+                                   Style="{StaticResource NameImageTextStyle}"
                             />
                         </StackPanel>
                     </Grid>
@@ -70,16 +52,10 @@
         </GridView>
         <TextBlock Grid.Row="1"
                    x:Name="NoDataText"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   Foreground="#2C404B"
-                   Visibility="Collapsed"/>
+                   Style="{StaticResource NoDataTextStyle}"/>
 
         <ProgressRing Grid.Row="1"
                       x:Name="LoadingProgressRing"
-                      IsActive="False"
-                      Width="68"
-                      Height="68"
-                      Foreground="#2C404B"/>
+                      Style="{StaticResource LoadingProgressRingStyle}"/>
     </Grid>
 </Page>

@@ -12,40 +12,22 @@
             <RowDefinition Height="64"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Background="#2C404B"
-              HorizontalAlignment="Stretch">
+        <Grid Style="{StaticResource NavigationGridStyle}">
             <TextBlock x:Name="TextBlockName"
-                       Foreground="White"
-                       FontSize="32"
-                       Margin="12,0,0,0"
-                       VerticalAlignment="Center"/>
+                       Style="{StaticResource NavigatioTitleTextStyle}"                     />
         </Grid>
 
         <StackPanel Grid.Row="1"
                     HorizontalAlignment="Center">
-
             <Image x:Name="ImageCity"
                    Stretch="Uniform"
                    MaxHeight="640"
                    MaxWidth="640"
-                   Margin="0,12,0,12"
-                   >
-                
-            </Image>
+                   Margin="0,12,0,12"/>
+
             <TextBlock x:Name="DescriptionCity"
-                       Foreground="#2C404B"
-                       TextWrapping="WrapWholeWords"
-                       HorizontalAlignment="Center"
-                       IsTextSelectionEnabled="True"
-                       SelectionHighlightColor="Gray"
-                       TextAlignment="Start"
-                       
-                       MaxWidth="680"
-                       FontFamily="Arial">
+                       Style="{StaticResource DescriptionCityTextStyle}"/>
 
-
-
-            </TextBlock>
         </StackPanel>
     </Grid>
 </Page>
