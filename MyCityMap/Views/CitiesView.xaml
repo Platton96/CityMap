@@ -6,7 +6,7 @@
     xmlns:local="using:MyCityMap.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:cityControl="using:MyCityMap.CustomControls"
+    xmlns:customControl="using:MyCityMap.CustomControls"
     mc:Ignorable="d"
     Loaded="Page_Loaded">
     <Grid Background="White">
@@ -17,7 +17,6 @@
         <Grid  Style="{StaticResource NavigationGridStyle}">
             <TextBlock Text="Cities"
                        Style="{StaticResource NavigatioTitleTextStyle}"/>
-
         </Grid>
         <Button x:Name="CitiesMapBtn"
                 Style="{StaticResource ButtonMapStyle}"
@@ -38,7 +37,7 @@
                   ItemClick="ListCities_ItemClick">
             <GridView.ItemTemplate>
                 <DataTemplate>
-                    <cityControl:CityControl ImageUrl="{Binding ImageUrl}"
+                    <customControl:CityControl ImageUrl="{Binding ImageUrl}"
                                              Name="{Binding Name}"/>
                 </DataTemplate>
             </GridView.ItemTemplate>

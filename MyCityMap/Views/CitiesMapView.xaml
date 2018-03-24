@@ -6,6 +6,7 @@
     xmlns:local="using:MyCityMap.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:customControl="using:MyCityMap.CustomControls"
     mc:Ignorable="d"
     xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps">
 
@@ -14,15 +15,16 @@
             <RowDefinition Height="64"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid  Style="{StaticResource NavigationGridStyle}">
+        <!--<Grid  Style="{StaticResource NavigationGridStyle}">
             <TextBlock Text="Cities Map"
                        Style="{StaticResource NavigatioTitleTextStyle}"/>
-        </Grid>
-        
+        </Grid>-->
+        <customControl:NavigationControl NavigationTitle="Cities map"
+                                         Grid.Row="0"/>
         <Maps:MapControl x:Name="MapControl" 
                          MapElementClick="MapElement_Click"
                          ZoomLevel="2"
                          Grid.Row="1"/>
-
+    
     </Grid>
 </Page>
