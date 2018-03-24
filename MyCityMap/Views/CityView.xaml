@@ -30,10 +30,11 @@
                 <Image x:Name="ImageCity"
                        Style="{StaticResource DetailsCityImageStyle}"
                        Grid.Row="0"/>
-                <TextBlock x:Name="DescriptionCity"
-                           Style="{StaticResource DescriptionCityTextStyle}"
-                           Grid.Row="1"/>
-                                
+                <ScrollViewer  Grid.Row="1">
+                    <TextBlock x:Name="DescriptionCity"
+                               Style="{StaticResource DescriptionCityTextStyle}"/>
+                </ScrollViewer>
+
             </Grid>
         </Grid>
     </Grid>
