@@ -1,10 +1,12 @@
 ﻿<Page
+    x:Name="userControl"
     x:Class="MyCityMap.Views.CityView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:MyCityMap.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:customControls="using:MyCityMap.CustomControls"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -12,10 +14,7 @@
             <RowDefinition Height="64"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Style="{StaticResource NavigationGridStyle}">
-            <TextBlock x:Name="TextBlockName"
-                       Style="{StaticResource NavigatioTitleTextStyle}"/>
-        </Grid>
+        <customControls:NavigationControl x:Name="NavigationControl"/>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
@@ -31,10 +30,11 @@
                 <Image x:Name="ImageCity"
                        Style="{StaticResource DetailsCityImageStyle}"
                        Grid.Row="0"/>
-                <TextBlock x:Name="DescriptionCity"
-                           Style="{StaticResource DescriptionCityTextStyle}"
-                           Grid.Row="1"/>
-                                
+                <ScrollViewer  Grid.Row="1">
+                    <TextBlock x:Name="DescriptionCity"
+                               Style="{StaticResource DescriptionCityTextStyle}"/>
+                </ScrollViewer>
+
             </Grid>
         </Grid>
     </Grid>
