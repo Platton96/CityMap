@@ -21,7 +21,7 @@ namespace MyCityMap.Views
         {
             if (e.Parameter is City city)
             {
-                TextBlockName.Text = city.Name;
+                NavigationControl.NavigationTitle = city.Name;
                 DescriptionCity.Text = city.Description;
                 ImageCity.Source = new BitmapImage(new Uri(city.ImageUrl));
             }

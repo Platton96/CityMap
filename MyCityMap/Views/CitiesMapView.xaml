@@ -15,12 +15,7 @@
             <RowDefinition Height="64"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <!--<Grid  Style="{StaticResource NavigationGridStyle}">
-            <TextBlock Text="Cities Map"
-                       Style="{StaticResource NavigatioTitleTextStyle}"/>
-        </Grid>-->
-        <customControl:NavigationControl NavigationTitle="Cities map"
-                                         Grid.Row="0"/>
+        <customControl:NavigationControl NavigationTitle="Cities map"/>
         <Maps:MapControl x:Name="MapControl" 
                          MapElementClick="MapElement_Click"
                          ZoomLevel="2"
