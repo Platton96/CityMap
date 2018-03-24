@@ -33,8 +33,8 @@
                        Grid.Row="0"/>
                 <TextBlock x:Name="DescriptionCity"
                            Style="{StaticResource DescriptionCityTextStyle}"
-                           Grid.Row="1"
-                                />
+                           Grid.Row="1"/>
+                                
             </Grid>
         </Grid>
     </Grid>

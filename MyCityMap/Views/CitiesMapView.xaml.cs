@@ -6,6 +6,8 @@ using Windows.Devices.Geolocation;
 using Windows.UI.Xaml.Controls.Maps;
 using System.Linq;
 using System;
+using Windows.UI.Xaml.Media.Imaging;
+using Windows.Storage.Streams;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -51,7 +53,9 @@ namespace MyCityMap.Views
             var mapIcon = new MapIcon
             {
                 Location = geoPoint,
-                Title = city.Name
+                Title = city.Name,
+              
+                Image =RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/MapIcon.png"))
             };
 
             if (mapIcon != null)
