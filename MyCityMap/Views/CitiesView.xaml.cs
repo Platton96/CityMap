@@ -26,29 +26,28 @@ namespace MyCityMap.Views
             _networkService = new NetworkService();
 
         }
+
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             await InitializeAsync();
-
-
         }
+
         private async Task InitializeAsync()
         {
             LoadingProgressRing.IsActive = true;
             var cities = await new CityService().LoadCityAsync();
             LoadingProgressRing.IsActive = false;
-
+            CitiesMapBtn.Visibility = Visibility.Visible;
             if (cities != null) GridView.ItemsSource = cities;
             else ShowNoData();
-           
-
-
         }
+
         private void ShowNoData()
         {
             NoDataText.Text = _networkService.HasInternet() ? NoInternetLabel : NoDataLabel;
             NoDataText.Visibility = Visibility.Visible;
         }
+
         private void ListCities_ItemClick (object sender, ItemClickEventArgs e)
         {
             Frame.Navigate(typeof(CityView), e.ClickedItem);

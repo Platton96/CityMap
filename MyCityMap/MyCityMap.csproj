@@ -95,6 +95,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\CityControl.xaml.cs">
+      <DependentUpon>CityControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Infrastructure\LocalStorage.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\DataFromJason.cs" />
@@ -145,6 +148,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="CustomControls\CityControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CitiesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

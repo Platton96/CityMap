@@ -54,8 +54,7 @@ namespace MyCityMap.Views
             {
                 Location = geoPoint,
                 Title = city.Name,
-              
-                Image =RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/MapIcon.png"))
+                Image =RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/MapIcon.png")) 
             };
 
             if (mapIcon != null)
