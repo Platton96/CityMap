@@ -111,6 +111,8 @@
     <Compile Include="ViewModels\CitiesMapViewModel.cs" />
     <Compile Include="ViewModels\CitiesViewModel.cs" />
     <Compile Include="ViewModels\CityViewModel.cs" />
+    <Compile Include="ViewModels\HelloWorldViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\CitiesView.xaml.cs">
       <DependentUpon>CitiesView.xaml</DependentUpon>
     </Compile>
@@ -119,6 +121,9 @@
     </Compile>
     <Compile Include="Views\CityView.xaml.cs">
       <DependentUpon>CityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HelloWorldView.xaml.cs">
+      <DependentUpon>HelloWorldView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -174,6 +179,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HelloWorldView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

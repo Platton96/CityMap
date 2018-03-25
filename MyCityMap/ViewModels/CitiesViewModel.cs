@@ -9,5 +9,6 @@ namespace MyCityMap.ViewModels
 {
     public class CitiesViewModel:Screen
     {
+
     }
 }
