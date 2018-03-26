@@ -8,7 +8,7 @@ using MyCityMap.Views;
 
 namespace MyCityMap
 {
-    public sealed partial class App
+    public sealed partial class App : CaliburnApplication
     {
         private WinRTContainer container;
 
@@ -37,7 +37,7 @@ namespace MyCityMap
             if (args.PreviousExecutionState == ApplicationExecutionState.Running)
                 return;
 
-            DisplayRootView<HelloWorldView>();
+            DisplayRootView<HelloWorld>();
         }
 
         protected override object GetInstance(Type service, string key)
