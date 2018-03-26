@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:customControl="using:MyCityMap.CustomControls"
     mc:Ignorable="d"
-    Loaded="Page_Loaded">
+>
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="64"/>
@@ -18,7 +18,7 @@
         <Button x:Name="CitiesMapBtn"
                 Style="{StaticResource ButtonMapStyle}"
                 Visibility="Collapsed"
-                Click="CitiesMap_Click">
+                Click="{Binding CitiesMap_Click}">
             <Button.Content>
                 <StackPanel Orientation="Horizontal">
                     <Image Source="ms-appx:///Assets/BingLogo.png"/>
@@ -28,14 +28,15 @@
             </Button.Content>
         </Button>
 
-        <GridView x:Name="Cities"
+        <GridView x:Name="CitiesGridView"
                   Grid.Row="1"
                   Style="{StaticResource gridViewCities}"
-                  ItemClick="ListCities_ItemClick">
+                  ItemsSource="{Binding Cities}"
+                  ItemClick="{Binding ListCities_ItemClick}">
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <customControl:CityControl ImageUrl="{Binding ImageUrl}"
-                                               Name="{Binding Name}"/>
+                                               TitleImage="{Binding Name}"/>
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
@@ -45,6 +46,7 @@
 
         <ProgressRing Grid.Row="1"
                       x:Name="LoadingProgressRing"
+                      IsActive="{Binding IsActiveLoadingProgressRing}"
                       Style="{StaticResource LoadingProgressRingStyle}"/>
     </Grid>
 </Page>

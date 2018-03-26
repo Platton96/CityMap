@@ -30,5 +30,10 @@ namespace MyCityMap.ViewModels
         {
             MyMessage = "Hello World!";
         }
+
+        protected override void OnViewLoaded(object view)
+        {
+            base.OnViewLoaded(view);
+        }
     }
 }
