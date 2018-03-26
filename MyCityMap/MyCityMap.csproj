@@ -108,6 +108,7 @@
     <Compile Include="Services\API\ApplicationApiService.cs" />
     <Compile Include="Services\CityService.cs" />
     <Compile Include="Services\NetworkService.cs" />
+    <Compile Include="ViewModels\CitiesViewModel.cs" />
     <Compile Include="ViewModels\HelloWorldViewModel.cs" />
     <Compile Include="ViewModels\ViewBaseModel.cs" />
     <Compile Include="Views\CitiesView.xaml.cs">

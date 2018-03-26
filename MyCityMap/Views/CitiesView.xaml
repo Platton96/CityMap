@@ -28,7 +28,7 @@
             </Button.Content>
         </Button>
 
-        <GridView x:Name="GridView"
+        <GridView x:Name="Cities"
                   Grid.Row="1"
                   Style="{StaticResource gridViewCities}"
                   ItemClick="ListCities_ItemClick">

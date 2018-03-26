@@ -38,7 +38,7 @@ namespace MyCityMap.Views
             var cities = await new CityService().LoadCityAsync();
             LoadingProgressRing.IsActive = false;
             CitiesMapBtn.Visibility = Visibility.Visible;
-            if (cities != null) GridView.ItemsSource = cities;
+            if (cities != null) Cities.ItemsSource = cities;
             else ShowNoData();
         }
 
@@ -55,7 +55,7 @@ namespace MyCityMap.Views
 
         private void CitiesMap_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(CitiesMapView), GridView.ItemsSource);
+            Frame.Navigate(typeof(CitiesMapView), Cities.ItemsSource);
         }
     }
 }

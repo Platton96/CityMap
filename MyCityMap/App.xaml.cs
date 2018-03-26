@@ -24,7 +24,7 @@ namespace MyCityMap
 
             container.RegisterWinRTServices();
 
-            container.PerRequest<HelloWorldViewModel>();
+            container.PerRequest<CitiesViewModel>();
         }
 
         protected override void PrepareViewFirst(Frame rootFrame)
@@ -37,7 +37,7 @@ namespace MyCityMap
             if (args.PreviousExecutionState == ApplicationExecutionState.Running)
                 return;
 
-            DisplayRootView<HelloWorld>();
+            DisplayRootView<CitiesView>();
         }
 
         protected override object GetInstance(Type service, string key)
