@@ -108,6 +108,8 @@
     <Compile Include="Services\API\ApplicationApiService.cs" />
     <Compile Include="Services\CityService.cs" />
     <Compile Include="Services\NetworkService.cs" />
+    <Compile Include="ViewModels\HelloWorldViewModel.cs" />
+    <Compile Include="ViewModels\ViewBaseModel.cs" />
     <Compile Include="Views\CitiesView.xaml.cs">
       <DependentUpon>CitiesView.xaml</DependentUpon>
     </Compile>
@@ -116,6 +118,9 @@
     </Compile>
     <Compile Include="Views\CityView.xaml.cs">
       <DependentUpon>CityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HelloWorld.xaml.cs">
+      <DependentUpon>HelloWorld.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +148,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Caliburn.Micro">
+      <Version>3.2.0</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.6</Version>
     </PackageReference>
@@ -168,6 +176,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HelloWorld.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
