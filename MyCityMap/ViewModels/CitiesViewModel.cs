@@ -7,21 +7,23 @@ using System.Text;
 using System.Threading.Tasks;
 using MyCityMap.Models;
 using Windows.UI.Xaml;
+using MyCityMap.Common;
 
 namespace MyCityMap.ViewModels
 {
     public class CitiesViewModel : BaseViewModel
     {
-        private INavigationService _pageNavigationService;
         private const string NoInternetLabel = "No internet conection";
         private const string NoDataLabel = "No Data";
+
+        private readonly INavigationManager _navigationManager;
 
         private CityService _cityService;
         private NetworkService _networkService;
 
-        public CitiesViewModel(INavigationService pageNavigationService) : base(pageNavigationService)
+        public CitiesViewModel(INavigationManager navigationManager)
         {
-            _pageNavigationService = pageNavigationService;
+            _navigationManager = navigationManager;
             _cityService = new CityService();
             _networkService = new NetworkService();
         }
@@ -47,14 +49,14 @@ namespace MyCityMap.ViewModels
             }
         }
 
-        private Visibility _visibilityOfCitiesMapButton;
-        public Visibility VisibilityOfCitiesMapButton
+        private Visibility _isCitiesMapButtonVisible;
+        public Visibility IsCitiesMapButtonVisible
         {
-            get { return _visibilityOfCitiesMapButton; }
+            get { return _isCitiesMapButtonVisible; }
             set
             {
-                _visibilityOfCitiesMapButton = value;
-                NotifyOfPropertyChange(() => VisibilityOfCitiesMapButton);
+                _isCitiesMapButtonVisible = value;
+                NotifyOfPropertyChange(() => IsCitiesMapButtonVisible);
             }
         }
 
@@ -88,11 +90,11 @@ namespace MyCityMap.ViewModels
         private async Task InitializeAsync()
         {
             VisiblityOfNoDataText = Visibility.Collapsed;
-            VisibilityOfCitiesMapButton = Visibility.Collapsed;
+            IsCitiesMapButtonVisible = Visibility.Collapsed;
             IsActiveLoadingProgressRing = true;
             var cities = await new CityService().LoadCityAsync();
             IsActiveLoadingProgressRing = false;
-            VisibilityOfCitiesMapButton= Visibility.Visible;
+            IsCitiesMapButtonVisible= Visibility.Visible;
             if (cities != null) Cities = cities;
             else ShowNoData();
         }
@@ -101,6 +103,11 @@ namespace MyCityMap.ViewModels
         {
             NoDataText = _networkService.HasInternet() ? NoInternetLabel : NoDataLabel;
             VisiblityOfNoDataText = Visibility.Visible;
+        }
+        public void NavigateToCityDetails(City city)
+        {
+            _navigationManager.SetBackButtonVisibility(true);
+            _navigationManager.NavigateToCityDetails(city);
         }
 
 

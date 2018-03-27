@@ -3,6 +3,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using MyCityMap.Models;
 using Windows.UI.Xaml.Media.Imaging;
+using MyCityMap.ViewModels;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -13,19 +14,14 @@ namespace MyCityMap.Views
     /// </summary>
     public sealed partial class CityView : Page
     {
+        public CityViewModel ViewModel { get; set; }
+
         public CityView()
         {
             InitializeComponent();
+
+            DataContextChanged += (s, e) => { ViewModel = DataContext as CityViewModel; };
         }
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            if (e.Parameter is City city)
-            {
-                NavigationControl.NavigationTitle = city.Name;
-                DescriptionCity.Text = city.Description;
-                ImageCity.Source = new BitmapImage(new Uri(city.ImageUrl));
-            }
-            base.OnNavigatedTo(e);
-        }
+
     }
 }

@@ -6,7 +6,7 @@ namespace MyCityMap.ViewModels
     {
         private INavigationService _pageNavigationService;
 
-        public HelloWorldViewModel(INavigationService pageNavigationService) : base(pageNavigationService)
+        public HelloWorldViewModel(INavigationService pageNavigationService)
         {
             _pageNavigationService = pageNavigationService;
         }

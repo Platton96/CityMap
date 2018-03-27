@@ -95,6 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\INavigationManager.cs" />
     <Compile Include="Common\NavigationManager.cs" />
     <Compile Include="CustomControls\CityControl.xaml.cs">
       <DependentUpon>CityControl.xaml</DependentUpon>

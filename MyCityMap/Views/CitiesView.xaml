@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:customControl="using:MyCityMap.CustomControls"
+    xmlns:models="using:MyCityMap.Models"
     mc:Ignorable="d">
     <Grid Background="White">
         <Grid.RowDefinitions>
@@ -16,7 +17,7 @@
         <customControl:NavigationControl NavigationTitle="Cities"/>
         <Button x:Name="CitiesMapBtn"
                 Style="{StaticResource ButtonMapStyle}"
-                Visibility="{Binding  VisibilityOfCitiesMapButton}">
+                Visibility="{x:Bind ViewModel.IsCitiesMapButtonVisible, Mode=OneWay}">
             <Button.Content>
                 <StackPanel Orientation="Horizontal">
                     <Image Source="ms-appx:///Assets/BingLogo.png"/>
@@ -29,21 +30,22 @@
         <GridView x:Name="GridViewCities"
                   Grid.Row="1"
                   Style="{StaticResource gridViewCities}"
-                  ItemsSource="{Binding Cities}">
+                  ItemsSource="{x:Bind ViewModel.Cities, Mode=OneWay}"
+                  ItemClick="OnCitiesListItemClick">
             <GridView.ItemTemplate>
-                <DataTemplate>
-                    <customControl:CityControl ImageUrl="{Binding ImageUrl}"
-                                               TitleImage="{Binding Name}"/>
+                <DataTemplate x:DataType="models:City">
+                    <customControl:CityControl ImageUrl="{x:Bind ImageUrl, Mode=OneWay}"
+                                               TitleImage="{x:Bind Name, Mode=OneWay}"/>
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
         <TextBlock Grid.Row="1"
-                   Text="{Binding NoDataText}"
+                   Text="{x:Bind ViewModel.NoDataText, Mode=OneWay}"
                    Style="{StaticResource NoDataTextStyle}"/>
     
         <ProgressRing Grid.Row="1"
                       x:Name="LoadingProgressRing"
                       Style="{StaticResource LoadingProgressRingStyle}"
-                      IsActive="{Binding IsActiveLoadingProgressRing}"/>
+                      IsActive="{x:Bind ViewModel.IsActiveLoadingProgressRing, Mode=OneWay}"/>
     </Grid>
 </Page>

@@ -5,6 +5,7 @@ using MyCityMap.Views;
 using Caliburn.Micro;
 using MyCityMap.ViewModels;
 using System.Collections.Generic;
+using MyCityMap.Common;
 
 namespace MyCityMap
 {
@@ -25,6 +26,9 @@ namespace MyCityMap
             container.RegisterWinRTServices();
 
             container.PerRequest<CitiesViewModel>();
+            container.PerRequest<CityViewModel>();
+
+            container.Singleton<INavigationManager, NavigationManager>();
         }
 
         protected override void PrepareViewFirst(Frame rootFrame)
