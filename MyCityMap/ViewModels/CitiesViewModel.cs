@@ -57,6 +57,28 @@ namespace MyCityMap.ViewModels
                 NotifyOfPropertyChange(() => VisibilityOfCitiesMapButton);
             }
         }
+
+        private string _noDataText;
+        public string NoDataText
+        {
+            get { return _noDataText; }
+            set
+            {
+                _noDataText = value;
+                NotifyOfPropertyChange(() => NoDataText);
+            }
+        }
+
+        private Visibility _visiblityOfNoDataText;
+        public Visibility VisiblityOfNoDataText
+        {
+            get { return _visiblityOfNoDataText; }
+            set
+            {
+                _visiblityOfNoDataText = value;
+                NotifyOfPropertyChange(() => VisiblityOfNoDataText);
+            }
+        }
         protected override async void OnViewLoaded(object view)
         {
             await InitializeAsync();
@@ -65,6 +87,7 @@ namespace MyCityMap.ViewModels
 
         private async Task InitializeAsync()
         {
+            VisiblityOfNoDataText = Visibility.Collapsed;
             VisibilityOfCitiesMapButton = Visibility.Collapsed;
             IsActiveLoadingProgressRing = true;
             var cities = await new CityService().LoadCityAsync();
@@ -72,6 +95,12 @@ namespace MyCityMap.ViewModels
             VisibilityOfCitiesMapButton= Visibility.Visible;
             if (cities != null) Cities = cities;
             else ShowNoData();
+        }
+
+        private void ShowNoData()
+        {
+            NoDataText = _networkService.HasInternet() ? NoInternetLabel : NoDataLabel;
+            VisiblityOfNoDataText = Visibility.Visible;
         }
 
 

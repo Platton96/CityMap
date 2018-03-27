@@ -37,9 +37,9 @@
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
-        <!--<TextBlock Grid.Row="1"
-                   x:Name="NoDataText"
-                   Style="{StaticResource NoDataTextStyle}"/>-->
+        <TextBlock Grid.Row="1"
+                   Text="{Binding NoDataText}"
+                   Style="{StaticResource NoDataTextStyle}"/>
     
         <ProgressRing Grid.Row="1"
                       x:Name="LoadingProgressRing"
