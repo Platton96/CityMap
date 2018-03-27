@@ -23,8 +23,8 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="1" VerticalAlignment="Top">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="9*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="4*"/>
                 </Grid.RowDefinitions>
      
                 <Image x:Name="ImageCity"

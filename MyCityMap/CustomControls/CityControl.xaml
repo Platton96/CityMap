@@ -17,7 +17,7 @@
         <StackPanel Height="40"
                     VerticalAlignment="Bottom"
                     Background="{ThemeResource SystemControlBackgroundBaseLowBrush}">
-            <TextBlock Text="{Binding Name,
+            <TextBlock Text="{Binding TitleImage,
                               ElementName=userControl}"
                        Style="{StaticResource NameImageTextStyle}"/>
                             

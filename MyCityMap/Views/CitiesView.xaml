@@ -35,7 +35,7 @@
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <customControl:CityControl ImageUrl="{Binding ImageUrl}"
-                                               Name="{Binding Name}"/>
+                                               TitleImage="{Binding Name}"/>
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>

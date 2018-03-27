@@ -26,13 +26,13 @@ namespace MyCityMap.CustomControls
         }
         public static readonly DependencyProperty ImageUrlProperty =
             DependencyProperty.Register("ImageUrl", typeof(string), typeof(CityControl), null);
-        public string Name
+        public string TitleImage
         {
-            get { return (string)GetValue(NameProperty); }
-            set { SetValue(NameProperty, value); }
+            get { return (string)GetValue(TitleImageProperty); }
+            set { SetValue(TitleImageProperty, value); }
         }
-        public static readonly DependencyProperty NameProperty =
-            DependencyProperty.Register("Name", typeof(string), typeof(CityControl), null);
+        public static readonly DependencyProperty TitleImageProperty =
+            DependencyProperty.Register("TitleImage", typeof(string), typeof(CityControl), null);
         public CityControl()
          {
              this.InitializeComponent();
