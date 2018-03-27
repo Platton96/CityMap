@@ -16,7 +16,7 @@
         <customControl:NavigationControl NavigationTitle="Cities"/>
         <Button x:Name="CitiesMapBtn"
                 Style="{StaticResource ButtonMapStyle}"
-                Visibility="Collapsed">
+                Visibility="{Binding  VisibilityOfCitiesMapButton}">
             <Button.Content>
                 <StackPanel Orientation="Horizontal">
                     <Image Source="ms-appx:///Assets/BingLogo.png"/>

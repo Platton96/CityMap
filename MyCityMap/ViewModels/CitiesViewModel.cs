@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MyCityMap.Models;
+using Windows.UI.Xaml;
 
 namespace MyCityMap.ViewModels
 {
@@ -34,6 +35,7 @@ namespace MyCityMap.ViewModels
                 NotifyOfPropertyChange(() => Cities);
             }
          }
+
         private bool _isActiveLoadingProgressRing;
         public bool IsActiveLoadingProgressRing
         {
@@ -44,6 +46,17 @@ namespace MyCityMap.ViewModels
                 NotifyOfPropertyChange(() => IsActiveLoadingProgressRing);
             }
         }
+
+        private Visibility _visibilityOfCitiesMapButton;
+        public Visibility VisibilityOfCitiesMapButton
+        {
+            get { return _visibilityOfCitiesMapButton; }
+            set
+            {
+                _visibilityOfCitiesMapButton = value;
+                NotifyOfPropertyChange(() => VisibilityOfCitiesMapButton);
+            }
+        }
         protected override async void OnViewLoaded(object view)
         {
             await InitializeAsync();
@@ -52,13 +65,13 @@ namespace MyCityMap.ViewModels
 
         private async Task InitializeAsync()
         {
+            VisibilityOfCitiesMapButton = Visibility.Collapsed;
             IsActiveLoadingProgressRing = true;
             var cities = await new CityService().LoadCityAsync();
             IsActiveLoadingProgressRing = false;
-            //CitiesMapBtn.Visibility = Visibility.Visible;
+            VisibilityOfCitiesMapButton= Visibility.Visible;
             if (cities != null) Cities = cities;
-
-            // else ShowNoData();
+            else ShowNoData();
         }
 
 
