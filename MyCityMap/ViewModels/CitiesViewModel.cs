@@ -109,6 +109,10 @@ namespace MyCityMap.ViewModels
             _navigationManager.SetBackButtonVisibility(true);
             _navigationManager.NavigateToCityDetails(city);
         }
+        public void NavigateToCitiesMap (IEnumerable<City> cities)
+        {
+            _navigationManager.NavigateToCitiesMap(cities);
+        }
 
 
     }

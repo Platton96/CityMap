@@ -10,6 +10,7 @@ namespace MyCityMap.Common
     public interface INavigationManager
     {
         void NavigateToCityDetails(City city);
+        void NavigateToCitiesMap(IEnumerable<City> cities);
         void SetBackButtonVisibility(bool value);
     }
 }

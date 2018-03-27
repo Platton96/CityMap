@@ -16,8 +16,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <customControl:NavigationControl NavigationTitle="Cities map"/>
-        <Maps:MapControl x:Name="MapControl" 
-                         MapElementClick="MapElement_Click"
+        <Maps:MapControl x:Name="MapCities"
                          ZoomLevel="2"
                          Grid.Row="1"/>
     

@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using MyCityMap.Models;
 using MyCityMap.ViewModels;
+using System.Collections.Generic;
 using Windows.UI.Core;
 
 namespace MyCityMap.Common
@@ -24,7 +25,10 @@ namespace MyCityMap.Common
         {
             _navigationService.NavigateToViewModel<CityViewModel>(city);
         }
-
+        public void NavigateToCitiesMap(IEnumerable<City> cities)
+        {
+            _navigationService.NavigateToViewModel<CitiesMapViewModel>(cities);
+        }
         public void SetBackButtonVisibility(bool value)
         {
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = value ? AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;

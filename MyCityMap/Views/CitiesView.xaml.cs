@@ -33,6 +33,11 @@ namespace MyCityMap.Views
             ViewModel.NavigateToCityDetails(e.ClickedItem as City);
         }
 
+        private void OnCitiesMapButtonClick(object sender, RoutedEventArgs e)
+        {
+            ViewModel.NavigateToCitiesMap(ViewModel.Cities);
+        }
+
         //private async void Page_Loaded(object sender, RoutedEventArgs e)
         //{
         //    await InitializeAsync();

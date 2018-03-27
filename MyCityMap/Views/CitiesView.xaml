@@ -17,7 +17,8 @@
         <customControl:NavigationControl NavigationTitle="Cities"/>
         <Button x:Name="CitiesMapBtn"
                 Style="{StaticResource ButtonMapStyle}"
-                Visibility="{x:Bind ViewModel.IsCitiesMapButtonVisible, Mode=OneWay}">
+                Visibility="{x:Bind ViewModel.IsCitiesMapButtonVisible, Mode=OneWay}"
+                Click="OnCitiesMapButtonClick">
             <Button.Content>
                 <StackPanel Orientation="Horizontal">
                     <Image Source="ms-appx:///Assets/BingLogo.png"/>

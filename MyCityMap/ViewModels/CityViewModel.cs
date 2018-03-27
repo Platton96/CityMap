@@ -3,15 +3,16 @@ using System;
 using Windows.UI.Xaml.Media.Imaging;
 using Caliburn.Micro;
 using MyCityMap.Models;
+using MyCityMap.Common;
 
 namespace MyCityMap.ViewModels
 {
     public class CityViewModel : BaseViewModel
     {
-        private INavigationService _pageNavigationService;
-        public CityViewModel(INavigationService pageNavigationService)
+        private INavigationManager _pageNavigationManager;
+        public CityViewModel (INavigationManager pageNavigationManager)
         {
-            _pageNavigationService = pageNavigationService;
+            _pageNavigationManager = pageNavigationManager;
         }
         private City _city;
         public City City

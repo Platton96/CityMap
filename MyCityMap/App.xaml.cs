@@ -27,7 +27,7 @@ namespace MyCityMap
 
             container.PerRequest<CitiesViewModel>();
             container.PerRequest<CityViewModel>();
-
+            container.PerRequest<CitiesMapViewModel>();
             container.Singleton<INavigationManager, NavigationManager>();
         }
 
