@@ -7,8 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:customControl="using:MyCityMap.CustomControls"
-    mc:Ignorable="d"
-    Loaded="Page_Loaded">
+    mc:Ignorable="d">
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="64"/>
@@ -17,8 +16,7 @@
         <customControl:NavigationControl NavigationTitle="Cities"/>
         <Button x:Name="CitiesMapBtn"
                 Style="{StaticResource ButtonMapStyle}"
-                Visibility="Collapsed"
-                Click="CitiesMap_Click">
+                Visibility="Collapsed">
             <Button.Content>
                 <StackPanel Orientation="Horizontal">
                     <Image Source="ms-appx:///Assets/BingLogo.png"/>
@@ -28,10 +26,10 @@
             </Button.Content>
         </Button>
 
-        <GridView x:Name="GridView"
+        <GridView x:Name="GridViewCities"
                   Grid.Row="1"
                   Style="{StaticResource gridViewCities}"
-                  ItemClick="ListCities_ItemClick">
+                  ItemsSource="{Binding Cities}">
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <customControl:CityControl ImageUrl="{Binding ImageUrl}"
@@ -39,12 +37,13 @@
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
-        <TextBlock Grid.Row="1"
+        <!--<TextBlock Grid.Row="1"
                    x:Name="NoDataText"
-                   Style="{StaticResource NoDataTextStyle}"/>
-
+                   Style="{StaticResource NoDataTextStyle}"/>-->
+    
         <ProgressRing Grid.Row="1"
                       x:Name="LoadingProgressRing"
-                      Style="{StaticResource LoadingProgressRingStyle}"/>
+                      Style="{StaticResource LoadingProgressRingStyle}"
+                      IsActive="{Binding IsActiveLoadingProgressRing}"/>
     </Grid>
 </Page>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyCityMap.ViewModels
 {
-    class CitiesMapViewModel
+    public class CitiesMapViewModel
     {
     }
 }

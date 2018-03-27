@@ -13,49 +13,46 @@ namespace MyCityMap.Views
     /// </summary>
     public sealed partial class CitiesView : Page
     {
-        private const string NoInternetLabel = "No internet conection";
-        private const string NoDataLabel = "No Data";
-
-        private CityService _cityService;
-        private NetworkService _networkService;
+        //private const string NoInternetLabel = "No internet conection";
+        //private const string NoDataLabel = "No Data";
 
         public CitiesView()
         {
             InitializeComponent();
-            _cityService = new CityService();
-            _networkService = new NetworkService();
+            //_cityService = new CityService();
+            //_networkService = new NetworkService();
 
         }
 
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            await InitializeAsync();
-        }
+        //private async void Page_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    await InitializeAsync();
+        //}
 
-        private async Task InitializeAsync()
-        {
-            LoadingProgressRing.IsActive = true;
-            var cities = await new CityService().LoadCityAsync();
-            LoadingProgressRing.IsActive = false;
-            CitiesMapBtn.Visibility = Visibility.Visible;
-            if (cities != null) GridView.ItemsSource = cities;
-            else ShowNoData();
-        }
+        //private async Task InitializeAsync()
+        //{
+        //    LoadingProgressRing.IsActive = true;
+        //    var cities = await new CityService().LoadCityAsync();
+        //    LoadingProgressRing.IsActive = false;
+        //    CitiesMapBtn.Visibility = Visibility.Visible;
+        //    if (cities != null) GridView.ItemsSource = cities;
+        //    else ShowNoData();
+        //}
 
-        private void ShowNoData()
-        {
-            NoDataText.Text = _networkService.HasInternet() ? NoInternetLabel : NoDataLabel;
-            NoDataText.Visibility = Visibility.Visible;
-        }
+        //private void ShowNoData()
+        //{
+        //    NoDataText.Text = _networkService.HasInternet() ? NoInternetLabel : NoDataLabel;
+        //    NoDataText.Visibility = Visibility.Visible;
+        //}
 
-        private void ListCities_ItemClick (object sender, ItemClickEventArgs e)
-        {
-            Frame.Navigate(typeof(CityView), e.ClickedItem);
-        }
+        //private void ListCities_ItemClick (object sender, ItemClickEventArgs e)
+        //{
+        //    Frame.Navigate(typeof(CityView), e.ClickedItem);
+        //}
 
-        private void CitiesMap_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(CitiesMapView), GridView.ItemsSource);
-        }
+        //private void CitiesMap_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Frame.Navigate(typeof(CitiesMapView), GridView.ItemsSource);
+        //}
     }
 }

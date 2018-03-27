@@ -95,6 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\NavigationManager.cs" />
     <Compile Include="CustomControls\CityControl.xaml.cs">
       <DependentUpon>CityControl.xaml</DependentUpon>
     </Compile>
@@ -109,6 +110,9 @@
     <Compile Include="Services\CityService.cs" />
     <Compile Include="Services\NetworkService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\CitiesMapViewModel.cs" />
+    <Compile Include="ViewModels\CitiesViewModel.cs" />
+    <Compile Include="ViewModels\CityViewModel.cs" />
     <Compile Include="ViewModels\HelloWorldViewModel.cs" />
     <Compile Include="Views\CitiesView.xaml.cs">
       <DependentUpon>CitiesView.xaml</DependentUpon>
